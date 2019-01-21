@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Event from "./Event/Event";
+import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import "./App.css";
 
@@ -15,81 +16,31 @@ class App extends Component {
           month: null,
           year: "2014"
         },
-        img: "",
+        img:
+          "https://conteudo.imguol.com.br/c/noticias/2014/10/26/dilma-eleita-1414359092930_956x500.jpg",
         content:
           "Após campanha turbulenta, Dilma Roussef é eleita presidenta do Brasil com 51% dos votos válidos"
-      },
-      {
-        id: 1,
-        title: "Aécio: o teimoso",
-        subtitle: "Aécio questiona o resultado das urnas",
-        date: {
-          day: null,
-          month: null,
-          year: "2014"
-        },
-        img: "",
-        content:
-          "Após a divulgação dos resultados, Aécio Neves questiona o resultado nas urnas e diz que pedirá recontagem dos votos"
-      },
-      {
-        id: 2,
-        title: "O início do complô",
-        subtitle: "Eduardo Cunha eleito presidente da câmara",
-        date: {
-          day: null,
-          month: "february",
-          year: "2015"
-        },
-        img: "",
-        content:
-          "Aproximação de PMDB e PSDB garante a eleição de Eduardo Cunha para a presidência da casa"
-      },
-      {
-        id: 3,
-        title: "Bombardeio",
-        subtitle: "Guerra: Legislativo x Executivo",
-        date: {
-          day: null,
-          month: "february",
-          year: "2015"
-        },
-        img: "",
-        content:
-          "Oposição se organiza e votam as chamadas pautas bomba, que enfraquecem o governo"
-      },
-      {
-        id: 4,
-        title: "Pressão popular",
-        subtitle: "População pede impeachment",
-        date: {
-          day: null,
-          month: "march",
-          year: "2015"
-        },
-        img: "",
-        content:
-          "Movimentos reacionários liderados pelo MBL organizam manifestações ao redor do Brasil pedindo o impeachment da presidenta"
       }
     ]
   };
 
   render() {
     let events = null;
-
     events = this.state.events.map(event => {
       return (
         <Event
+          key={event.id}
           title={event.title}
           subtitle={event.subtitle}
           content={event.content}
           date={event.date}
+          image={event.img}
         />
       );
     });
 
     return (
-      <Grid container direction="column" alignItems="center">
+      <Grid container direction="row" alignItems="center" justify="center">
         {events}
       </Grid>
     );
